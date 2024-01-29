@@ -1,0 +1,183 @@
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 50%;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+  <script type="text/javascript">
+
+ function fval()
+    {
+     var first=document.getElementById('first').value;
+     if(first=="")
+      document.getElementById('errFirst').innerHTML = "<span style='color:red'>Please enter your first name!</span>"; 
+     else
+      document.getElementById('errFirst').innerHTML = ""; 
+              
+}
+   function lval()
+    {
+     var last=document.getElementById('last').value;
+     if(last=="")
+       document.getElementById('errLast').innerHTML = "<span style='color:red'>Please enter your last name!</span>"; 
+     else
+   document.getElementById('errLast').innerHTML = ""; 
+         
+}
+  function eval()
+    {
+     var email=document.getElementById('email').value;
+     var atpos=email.indexOf("@");
+     var dotpos=email.lastIndexOf(".");
+     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length)
+       document.getElementById('errEmail').innerHTML = "<span style='color: red'>Enter a valid email address!</span>";
+     else
+document.getElementById('errEmail').innerHTML = "";
+         
+}
+   function uval()
+    {
+     var uid=document.getElementById('uid').value;
+     if(uid=="")
+      document.getElementById('errUid').innerHTML = "<span style='color:red'>Please enter your user id!</span>"; 
+     else
+document.getElementById('errUid').innerHTML = ""; 
+     
+
+ }
+
+   function pval()
+    {
+     var password=document.getElementById('password').value;
+     var uid=document.getElementById('uid').value;
+     red = /[0-9]/;     
+     rel = /[a-z]/;
+     reu = /[A-Z]/; 
+     res = /[!@#\$%\^&\*]/
+   if(password=="")
+      document.getElementById('errPassword').innerHTML = "<span style='color:red'>Please enter your password!</span>"; 
+     else if(password.length < 6) 
+       document.getElementById('errPassword').innerHTML = "<span style='color:red'>Password must contain at least six characters!</span>"; 
+     else if(password == uid) 
+       document.getElementById('errPassword').innerHTML = "<span style='color:red'>Password must be different from Username!</span>";       
+     else if(!red.test(password))
+        document.getElementById('errPassword').innerHTML = "<span style='color:red'>password must contain at least one number (0-9)!</span>"; 
+     else if(!rel.test(password))
+       document.getElementById('errPassword').innerHTML = "<span style='color:red'>password must contain at least one lowercase letter (a-z)!</span>"; 
+    else if(!reu.test(password))
+        document.getElementById('errPassword').innerHTML = "<span style='color:red'>password must contain at least one uppercase letter (A-Z)!</span>"; 
+    else if(!res.test(password))
+        document.getElementById('errPassword').innerHTML = "<span style='color:red'>password must contain at least one special character!</span>"; 
+        
+else
+          document.getElementById('errPassword').innerHTML ="";
+}
+
+function cval()
+    {
+     var first = document.getElementById('password').value;
+     var second = document.getElementById('confirm').value;
+     if (second != first)
+      document.getElementById('errConfirm').innerHTML = "<span style='color: red'>Your passwords don't match!</span>";
+     else
+      document.getElementById('errConfirm').innerHTML = "";
+}
+function mval()
+    {
+     var mobile=document.getElementById('mobile').value;
+     if(mobile==""||mobile.length!=10||isNaN(mobile))
+      document.getElementById('errMobile').innerHTML = "<span style='color:red'>Please enter correct mobile number!</span>"; 
+     else
+       document.getElementById('errMobile').innerHTML = "";
+     }
+
+
+   </script>
+</head>
+<body>
+    <form method="post">
+<h1 align="center">Registration Form</h1>
+	<table align="center">
+
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" id="first" onblur="fval();"/></td>
+        <td><div id="errFirst"></div></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" id="last" onblur="lval();"/></td>
+        <td><div id="errLast"></div></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" id="email" onblur="eval();"/></td>
+        <td><div id="errEmail"></div></td>
+      </tr>
+      <tr>
+        <td>User Id:</td>
+        <td><input type="text" id="uid" onblur="uval();"/></td>
+        <td><div id="errUid"></div></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" id="password" onblur="pval();"/></td>
+        <td><div id="errPassword"></div></td>
+      </tr>
+      <tr>
+        <td>Confirm Password:</td>
+        <td><input type="password" id="confirm" onblur="cval();"/></td>
+        <td><div id="errConfirm"></div></td>
+      </tr>
+	<tr>
+        <td>Mobile Number:</td>
+        <td><input type="text" id="mobile" onblur="mval();"/></td>
+        <td><div id="errMobile"></div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="submit" value="submit" onclick="mainfunction()"/></td>
+        
+      </tr>
+	</table>
+      </form>
+</body>
+</html>
