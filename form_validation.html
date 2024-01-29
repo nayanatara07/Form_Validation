@@ -59,6 +59,7 @@
       font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: rgb(61, 18, 214);
       font-weight: bold;
+      text-align: center;
     }
     .error {
       color: red;
@@ -168,42 +169,42 @@ function mval()
 
       <tr>
         <td>First Name:</td>
-        <td><input type="text" id="first" onblur="fval();"/></td>
+        <td><input type="text" id="first" placeholder="John" onblur="fval();"/></td>
         <td><div id="errFirst"></div></td>
       </tr>
       <tr>
         <td>Last Name:</td>
-        <td><input type="text" id="last" onblur="lval();"/></td>
+        <td><input type="text" id="last" placeholder="Parker" onblur="lval();"/></td>
         <td><div id="errLast"></div></td>
       </tr>
       <tr>
         <td>Email:</td>
-        <td><input type="text" id="email" onblur="eval();"/></td>
+        <td><input type="text" id="email" placeholder="johnparker@gmail.com" onblur="eval();"/></td>
         <td><div id="errEmail"></div></td>
       </tr>
       <tr>
         <td>User Id:</td>
-        <td><input type="text" id="uid" onblur="uval();"/></td>
+        <td><input type="text" id="uid" placeholder="JP3009" onblur="uval();"/></td>
         <td><div id="errUid"></div></td>
       </tr>
       <tr>
         <td>Password:</td>
-        <td><input type="password" id="password" onblur="pval();"/></td>
+        <td><input type="password" id="password" placeholder="********" onblur="pval();"/></td>
         <td><div id="errPassword"></div></td>
       </tr>
       <tr>
         <td>Confirm Password:</td>
-        <td><input type="password" id="confirm" onblur="cval();"/></td>
+        <td><input type="password" id="confirm" placeholder="********" onblur="cval();"/></td>
         <td><div id="errConfirm"></div></td>
       </tr>
 	<tr>
         <td>Mobile Number:</td>
-        <td><input type="text" id="mobile" onblur="mval();"/></td>
+        <td><input type="text" id="mobile"  placeholder="+91 746 696 9696"  onblur="mval();"/></td>
         <td><div id="errMobile"></div></td>
       </tr>
       <tr>
         
-        <td colspan="3" align="center"><input type="button" value="submit" onclick="mainfunction()"/></td>
+        <td colspan="3" align="center"><input type="button" value="Submit" onclick="mainfunction()"/></td>
       </tr>
     </table>
     
